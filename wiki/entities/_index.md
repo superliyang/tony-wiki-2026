@@ -1,43 +1,28 @@
 ---
-type: meta
-title: "Entities Index"
-updated: 2026-04-07
+type: domain
+title: "Entities"
+created: 2026-05-16
+updated: 2026-05-16
+status: seed
+subdomain_of: ""
+page_count: 0
 tags:
-  - meta
-  - index
-  - entity
-status: evergreen
-related:
-  - "[[index]]"
-  - "[[Andrej Karpathy]]"
-  - "[[hot]]"
-  - "[[LLM Wiki Pattern]]"
+  - domain
+  - entities
 ---
 
-# Entities Index
+# Entities · AI 实体
 
-Navigation: [[index]] | [[concepts/_index|Concepts]] | [[sources/_index|Sources]]
+AI 领域的公司、人物与产品。
 
-All entity pages — people, organizations, products, and tools.
+## 公司
 
----
+<!-- 公司页面将在此列出 -->
 
-## People
+## 人物
 
-- [[Andrej Karpathy]] — AI researcher, educator; originated the LLM Wiki pattern
+<!-- 人物页面将在此列出 -->
 
----
+## 产品
 
-## Organizations
-
-<!-- Add organization pages here -->
-
----
-
-## Products & Tools
-
-<!-- Add tool and product pages here -->
-
----
-
-## Add new entities here as they are identified during ingests.
+<!-- 产品页面将在此列出 -->

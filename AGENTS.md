@@ -1,4 +1,27 @@
-# claude-obsidian: Agent Instructions
+# Tony AI First Wiki: Agent Instructions
+
+This repository is Tony's new main AI First knowledge workspace. Treat it as an Obsidian-readable, GitHub-publishable knowledge base, not a temporary automation scratchpad.
+
+## Tony Operating Boundary
+
+- New main vault: `/Users/tony/Vault/tony-wiki-2026`.
+- Legacy mature vault: `/Users/tony/Vault/tony2026`.
+- The legacy vault must remain read-only unless Tony explicitly asks otherwise.
+- The legacy vault is included in this new vault as a filtered staged copy under `00-Inbox-AI/legacy-tony2026/`.
+- Do not create symlinks or live coupling from this vault back to the legacy vault; the new vault should work when pushed to GitHub and opened in Obsidian elsewhere.
+- OpenHuman, Hermes, and ECC may write only to staging/inbox areas by default. Canonical wiki pages under `wiki/` require review and intentional promotion.
+- Never commit secrets, tokens, local auth files, or runtime account state. Keep examples, remove `.env.local` copies.
+
+## Tool Roles
+
+- OpenHuman: ingestion layer. It may create drafts under `00-Inbox-AI/openhuman/`.
+- Hermes: long-running personal agent. It may capture Weixin/assistant notes under `00-Inbox-AI/hermes/` or `00-Inbox-AI/weixin/`.
+- ECC: engineering capability layer. It is a source of methods, rules, skills, and playbooks; do not let it globally modify Codex/Claude/MCP/hooks without an explicit reviewed install plan.
+- ECC is currently adopted project-locally through `.cursor/rules/ecc-ai-first-knowledge.mdc`, `skills/ai-first-work-center/SKILL.md`, and wiki playbooks. Do not run global ECC installers unless Tony explicitly asks.
+- Obsidian/Markdown: canonical knowledge asset layer.
+- Codex/Cursor/Claude Code: engineering and curation agents that promote staged material into `wiki/`.
+
+# claude-obsidian: Base Agent Instructions
 
 This repo is a Claude Code plugin **and** an Obsidian vault that builds persistent, compounding knowledge bases using Andrej Karpathy's LLM Wiki pattern. It works with **any AI coding agent** that supports the Agent Skills standard, including Codex CLI, OpenCode, and similar.
 
@@ -37,6 +60,7 @@ bash bin/setup-multi-agent.sh
 | `defuddle` | clean this url, defuddle |
 | `obsidian-markdown` | obsidian syntax, wikilink, callout |
 | `obsidian-bases` | obsidian bases, .base file, dynamic table |
+| `ai-first-work-center` | AI First work center, Hermes/OpenHuman/ECC, autonomous learning scout, candidate review |
 
 ## Key Conventions
 

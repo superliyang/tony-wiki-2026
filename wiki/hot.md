@@ -1,17 +1,15 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-04-24T13:10:00
+updated: 2026-06-01
 tags:
   - meta
   - hot-cache
-status: evergreen
+status: active
 related:
   - "[[index]]"
   - "[[log]]"
-  - "[[Wiki Map]]"
-  - "[[getting-started]]"
-  - "[[DragonScale Memory]]"
+  - "[[overview]]"
 ---
 
 # Recent Context
@@ -20,62 +18,75 @@ Navigation: [[index]] | [[log]] | [[overview]]
 
 ## Last Updated
 
-2026-04-24 (late night): v1.6.0 public release notes shipped. `docs/releases/v1.6.0.md` (Karpathy-style, 346 lines) establishes the release-notes convention. Three original SVGs at `wiki/meta/dragonscale-{mechanism-overview,6-test-flow,frontier-graph}.svg` carry the visual load; Wikipedia dragon curve referenced by text link only (no binary vendoring). R4 codex verifier ACCEPT WITH FIXES, 3 wording fixes applied. User runs `gh release create v1.6.0 --notes-file docs/releases/v1.6.0.md` when ready. Commits `85515bb` (docs), plus wiki/meta/ auto-commits for SVGs.
+2026-06-01: Added the autonomous AI-first learning engine design: Hermes/OpenHuman/ECC should collaborate through a shared Markdown/Git memory protocol, not one shared opaque internal memory.
 
-2026-04-24 (night): DragonScale end-to-end validation pass. Six-test menu run via Teams orchestration (codex gpt-5.4 for M1 dry-run, M1 commit, M4 autoresearch; chair for ollama pull, M2 allocate, M3 full tiling). All six green. First real fold committed (`wiki/folds/fold-k3-from-2026-04-23-to-2026-04-24-n8.md`, 115 lines, 8 children). First real tiling report at `wiki/meta/tiling-report-2026-04-24.md` (0 errors, 15 review pairs). M2 counter advanced 2 to 3, `c-000002` reserved-unassigned. M4 autoresearch filed 3 new concept pages (`Persistent Wiki Artifact`, `Source-First Synthesis`, `Query-Time Retrieval`) extending `[[How does the LLM Wiki pattern work?]]` with Karpathy gist + RAG + MemGPT + Obsidian docs as sources. v1.6.0 validated.
+## Key Recent Facts
 
-2026-04-24 (evening): v1.6.0 closeout via Teams approach (chair-led, codex gpt-5.4 for sub-agents). 2 explorers (closeout gaps + doc surface). 6 bounded writes (non-overlapping scope): `docs/dragonscale-guide.md` (new, 563 lines), `wiki/meta/2026-04-24-v1.6.0-release-session.md` (new, 346 lines), `wiki/meta/boundary-frontier-2026-04-24.md` (first real M4 run artifact, new), `docs/install-guide.md` (1.5.0 to 1.6.0 + M4 callout + flat-extractive correction), `README.md` (parenthetical + guide link), `wiki/hot.md` (drift fixes). 1 adversarial verifier returned ACCEPT WITH FIXES; all 11 fixes applied in place. Docs commit `eb1562f`. `make test` green (74+ assertions). Still no git tags for v1.5.0 / v1.5.1 / v1.6.0. User requested gpt-5.5; API rejects it on this codex CLI; gpt-5.4 used throughout.
+- Obsidian / Markdown vault remains the canonical knowledge source.
+- Hermes Agent is installed via `uv tool install hermes-agent` as `hermes-agent==0.15.2`.
+- Hermes Web UI is installed as `hermes-web-ui==0.6.7` and running at `http://localhost:8648`.
+- EKKO Hermes Web UI should be used for chat sessions, channels, models, scheduled jobs, usage analytics, logs, profiles, skills, memory, file browser, and terminal access.
+- EKKO Hermes Web UI should not be treated as the durable knowledge source; durable knowledge still belongs in Markdown under `wiki/`.
+- Start Hermes Web UI with `scripts/start-hermes-web-ui.sh` so `HERMES_AGENT_ROOT` points to uv's `site-packages/run_agent.py`; otherwise the agent bridge fails.
+- Main working vault path is now `/Users/tony/Vault/tony-wiki-2026`.
+- Hermes default model is `deepseek-v4-pro` with provider `deepseek`.
+- DeepSeek API connectivity passed `hermes doctor`, and `hermes -z` returned successfully.
+- Weixin is configured and gateway state reports `connected`.
+- A Weixin DM test reached Hermes and produced a response; session title: "Asking About Today's Weather".
+- Architecture decision: OpenHuman is ingestion only, Hermes is the long-running assistant, ECC is the engineering capability layer, and Obsidian remains the knowledge asset center.
+- Autonomy decision: Hermes should be the proactive runner, OpenHuman the broad ingestion and Memory Tree layer, ECC the procedural method layer; their shared truth should be `00-Inbox-AI/` plus reviewed `wiki/`, not hidden internal memory.
+- First autonomous workflow should be `Daily AI Learning Scout`: collect current signals, compare with the vault, propose candidate topics, recommend `study/watch/discard/promote/build`, then notify through Weixin or Feishu.
+- External-source AI summaries must go through staging before entering canonical wiki notes.
+- Legacy vault migration decision: old vault is preserved unchanged; filtered copy lives at `00-Inbox-AI/legacy-tony2026/`.
+- Publication decision: this new vault should become self-contained for GitHub and Obsidian reading; do not use symlinks, submodules, or live automation bridges back to `/Users/tony/Vault/tony2026`.
+- Removed the copied legacy `90-Agent-System/.env.local` from staging; keep only example config files before GitHub publication.
+- Imported legacy staging counts: 1760 Markdown, 11 Canvas, 8 Base, 2556 total files, 29M.
+- Legacy inventory: `01-Areas/` contains 1498 Markdown files; largest AI-adjacent domains are AI-Learning, AI-Engineering, International-Payments, Security, AI-Applications, Skills-Gaming, Cloud-Native, and AI-Open-Source.
+- Excluded legacy runtime/cache content: `.git/`, `.obsidian/`, `.p_obsidian/`, `.makemd/`, `.space/`, `node_modules/`, `__pycache__/`, `.DS_Store`.
+- ECC is cloned locally under `tools-sandbox/ECC` for inspection only; no global Codex/Claude/MCP/rules install was performed.
+- ECC dependencies were installed in `tools-sandbox/ECC`; ECC is adopted project-locally through a Cursor rule and `skills/ai-first-work-center`, not global hooks/MCP.
+- OpenHuman is installed at `/Applications/OpenHuman.app` as version `0.56.0`, launched once, and created state under `~/.openhuman`; no high-risk integrations are connected.
+- OpenHuman config audit: active user `local-tonylidemacbook-pro-local`, DeepSeek providers configured, one `tony-wiki` vault points at `00-Inbox-AI/signals/openhuman`, only `README.md` indexed, Composio/hosted integrations show 401 Unauthorized.
 
-2026-04-24 (late): Phase 4 shipped. Mechanism 4 (boundary-first autoresearch) implemented as `scripts/boundary-score.py` with expanded test coverage. `/autoresearch` without a topic now offers frontier candidates (opt-in, agenda-control labeled). Cross-file status updated. Version bumped to 1.6.0 in `plugin.json` + `marketplace.json`; no git tag created locally (only pre-DragonScale tags `v1.1` - `v1.4.3` exist).
+## Recent Changes
 
-2026-04-24 (afternoon): Phase 3.6 hardening, five surgical fixes (tiling --report path confinement, rollout baseline, AGENTS.md consistency, wiki-ingest .raw contradiction, install-guide version). v1.5.1.
-
-2026-04-24 (morning): Phase 3.5 hardening pass. Cross-phase audit resolved 10 hold-ship items. At that point Mechanism 4 was marked NOT IMPLEMENTED (later reversed in Phase 4 the same day). `bin/setup-dragonscale.sh` + tests + Makefile added, CHANGELOG created, versions synced to 1.5.0.
-
-2026-04-23 (3): Phase 3 complete. Semantic tiling lint shipped as opt-in. `scripts/tiling-check.py` with flock-guarded atomic cache, localhost-locked OLLAMA_URL default, symlink rejection, model-drift invalidation, and banded thresholds (error>=0.90, review>=0.80, conservative seeds). 4 codex review rounds, 10/10 accept.
-
-2026-04-23 (2): Phase 2 complete. Deterministic page addresses MVP via `scripts/allocate-address.sh` (flock-guarded, recovers counter from max observed). New frontmatter `address: c-NNNNNN`. `wiki-ingest` and `wiki-lint` updated with opt-in Address Assignment and Validation sections. 3 codex rounds, 8/8 accept.
-
-2026-04-23 (1): Phase 0-1 complete. DragonScale Memory spec (`wiki/concepts/DragonScale Memory.md` v0.3) plus `skills/wiki-fold/` for Mechanism 1 (log rollups, dry-run verified). Survived multi-round codex review.
-
-## Plugin State
-
-- **Version**: 1.6.0 (Phase 4 shipped; plugin.json + marketplace.json synced; 1.5.1 was the Phase 3.6 hardening point release)
-- **Install ID**: `claude-obsidian@claude-obsidian-marketplace`
-- **Skills**: 11 (wiki, wiki-ingest, wiki-query, wiki-lint, wiki-fold, save, autoresearch, canvas, defuddle, obsidian-bases, obsidian-markdown)
-- **Scripts**: `scripts/allocate-address.sh`, `scripts/tiling-check.py`, `scripts/boundary-score.py` (all opt-in; feature-detected by skills)
-- **Setup**: `bin/setup-vault.sh` (base vault), `bin/setup-dragonscale.sh` (opt-in DragonScale), `bin/setup-multi-agent.sh` (multi-agent bootstrap)
-- **Tests**: `make test` runs `tests/test_allocate_address.sh`, `tests/test_tiling_check.py`, `tests/test_boundary_score.py`. Zero ollama dependency for core tests.
-- **Hooks**: 4 (SessionStart, PostCompact, PostToolUse [stages wiki/, .raw/, .vault-meta/], Stop)
-
-## DragonScale Mechanisms
-
-1. **Fold operator** (Mechanism 1): `skills/wiki-fold/`, dry-run verified AND first real fold committed at `wiki/folds/fold-k3-from-2026-04-23-to-2026-04-24-n8.md`.
-2. **Deterministic addresses** (Mechanism 2): shipped and exercised; vault counter at 3. `c-000001` on DragonScale Memory.md. `c-000002` reserved-unassigned from validation pass (gap acceptable per spec).
-3. **Semantic tiling lint** (Mechanism 3): shipped and activated. `nomic-embed-text` pulled; first tiling report at `wiki/meta/tiling-report-2026-04-24.md` (0 errors, 15 review-band pairs).
-4. **Boundary-first autoresearch** (Mechanism 4): shipped (Phase 4, opt-in). `scripts/boundary-score.py` + `tests/test_boundary_score.py`. `/autoresearch` without a topic surfaces top-5 frontier pages as candidates; user picks, overrides, or declines. Explicitly labeled "agenda control" in both spec and skill.
-
-## Key Lessons from This Release Cycle
-
-1. Cross-phase audits are essential. Individual phase reviews miss drift between phases.
-2. Opt-in feature detection (`[ -x script ] && [ -f state ]`) preserves default plugin behavior for adopters and non-adopters alike.
-3. PostToolUse hook matcher is `Write|Edit`, so Bash writes don't fire it. Scripts that mutate tracked state must be Bash-only to avoid side-effect commits.
-4. Seed-vault self-consistency matters: if the spec says post-rollout pages need addresses, the concept page itself has to have one.
-5. Codex adversarial review rounds stop when the punch list is empty, not when the author feels done.
-
-## Style Preferences
-
-- No em dashes (U+2014) or `--` as punctuation. Periods, commas, colons, or parentheses. Hyphens in compound words are fine.
-- Short and direct responses. No trailing summaries.
-- Parallel tool calls when independent.
+- Created: [[AI First Personal Knowledge Stack]]
+- Created: [[AI First Layered Knowledge Architecture]]
+- Created: [[Legacy Vault Migration Plan]]
+- Created: [[Legacy Vault Inventory]]
+- Created: [[Core Vault Publication Policy]]
+- Created: [[Hermes Usage Guide]]
+- Created: [[Hermes Web UI Control Center]]
+- Created: [[Personal AI Work Center Architecture]]
+- Created: [[Autonomous AI First Learning Engine]]
+- Created: [[OpenHuman Usage Guide]]
+- Created: [[ECC Usage Guide]]
+- Created: `00-Inbox-AI/MEMORY-PROTOCOL.md`
+- Created: `skills/ai-first-work-center/SKILL.md`
+- Created: `.cursor/rules/ecc-ai-first-knowledge.mdc`
+- Created: `00-Inbox-AI/agent-memory/profile.md`, `preferences.md`, `learning-themes.md`, and `negative-signals.md`
+- Created: `00-Inbox-AI/README.md`
+- Created: `00-Inbox-AI/legacy-tony2026/MIGRATION.md`
+- Created: `scripts/start-hermes-web-ui.sh`
+- Updated: [[AI First Personal Knowledge Stack]], [[tools/_index]], [[practice/_index]], [[index]], [[log]], [[hot]]
 
 ## Active Threads
 
-- DragonScale Mechanism 4 shipped in Phase 4 as an opt-in Topic Selection mode in `skills/autoresearch/`. All four DragonScale mechanisms are now shipped and feature-gated.
-- v1.6.0 not yet pushed to GitHub (local commits only, no git tag created). User controls push and tag timing.
-- CLAUDE.md has one pre-existing uncommitted change ("Release Blog Post" section) that predates this session.
-
-## Repo Locations
-
-- Working: `~/Desktop/claude-obsidian/`
-- Public: https://github.com/AgriciDaniel/claude-obsidian
+- Next step: implement the first autonomous `Daily AI Learning Scout` using the shared memory protocol under `00-Inbox-AI/`.
+- OpenHuman next step: configure only low-risk local/public inputs and export Memory Tree summaries to `00-Inbox-AI/signals/openhuman/`.
+- OpenHuman audit report: `00-Inbox-AI/reports/daily/openhuman-config-audit-2026-06-01.md`.
+- Current collaboration map: [[AI First Work Center Collaboration Map]]
+- First demo run completed: [[Daily AI Learning Scout Demo]]
+- Demo artifacts: `scripts/daily_ai_learning_scout.py`, `00-Inbox-AI/reports/daily/2026-06-01-daily-ai-learning-scout.md`, `00-Inbox-AI/review-queue/pending/2026-06-01-daily-ai-learning-scout.md`, and `00-Inbox-AI/candidates/topics/2026-06-01-daily-ai-learning-scout.md`.
+- Demo notification: Feishu webhook delivery succeeded; Hermes Weixin `send` needs a home channel or target fix before it can be used for proactive Weixin notifications.
+- First `promote` decision completed: Daily AI Learning Scout candidate 2 became [[Exploring Autonomous Agentic Data Engineering for Model Specialization]] and [[Agentic Data Engineering for Model Specialization]].
+- Project-local ECC-style skill added: `skills/daily-ai-learning-scout/SKILL.md`.
+- Hermes cron installed: `daily-ai-learning-scout` job `40de6bd11528`, schedule `30 8 * * *`, script `~/.hermes/scripts/daily_ai_learning_scout.sh`, last manual run ok.
+- ECC next step: extract repeated scout/review workflows into project-local skills before considering global plugin or MCP setup.
+- Parallel step: harden Weixin access policy, then create the first vault capture workflow under `00-Inbox-AI/weixin/`.
+- First useful workflow: send a Weixin command such as `/save ...` or `/note ...` and have Hermes append it to a Markdown inbox in this vault.
+- Recommended operating model: Weixin for quick capture, Hermes Web UI for control, Obsidian for reading and editing, GitHub for backup/publication, OpenHuman for low-risk staging intake, ECC for repeatable engineering methods.
+- Next migration batch: start from legacy `AI-Engineering/专题总览.md`, `学习进度.md`, and `恢复笔记.md`, then promote selected material into the new `wiki/` topology.
+- Before pushing the staged legacy import to GitHub, run a privacy/secrets scan and decide whether the full 29M staged mirror should be committed in one batch or split by domain.
+- Later OpenHuman workflow: write only to staging such as `00-Inbox-AI/openhuman/`, then promote reviewed notes into the core wiki.
+- Keep OpenHuman disconnected from sensitive integrations until the memory ownership boundary is explicit.

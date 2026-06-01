@@ -1,42 +1,32 @@
 ---
-type: meta
-title: "Sources Index"
-updated: 2026-04-07
+type: domain
+title: "Sources"
+created: 2026-05-16
+updated: 2026-05-16
+status: seed
+subdomain_of: ""
+page_count: 0
 tags:
-  - meta
-  - index
-  - source
-status: evergreen
-related:
-  - "[[index]]"
-  - "[[log]]"
-  - "[[entities/_index]]"
-  - "[[Andrej Karpathy]]"
+  - domain
+  - sources
 ---
 
-# Sources Index
+# Sources · 原始资料来源
 
-Navigation: [[index]] | [[concepts/_index|Concepts]] | [[entities/_index|Entities]]
+每个摄入的原始文档对应一条来源记录。
 
-All source pages — summaries of ingested documents, transcripts, articles, and data.
+## 论文
 
----
+<!-- Paper source entries -->
 
-## Transcripts
+## 文章
 
+<!-- Article source entries -->
 
----
+## 视频
 
-## Articles
+<!-- Video source entries -->
 
-<!-- Add article source pages here -->
+## 网页
 
----
-
-## Papers
-
-<!-- Add paper source pages here -->
-
----
-
-## Add new sources here after each ingest.
+<!-- Web page source entries -->

@@ -1,33 +1,55 @@
-# claude-obsidian — Claude + Obsidian Wiki Vault
+# AI 全域知识体系: LLM Wiki
 
-This folder is both a Claude Code plugin and an Obsidian vault.
+Mode: E (Research) extended
+Purpose: AI 领域全维度知识库 — 公司、人物、论文、产品、模型、工具、开源项目、生态、实战落地
+Owner: Tony
+Created: 2026-05-16
 
-**Plugin name:** `claude-obsidian`
-**Skills:** `/wiki`, `/wiki-ingest`, `/wiki-query`, `/wiki-lint`
-**Vault path:** This directory (open in Obsidian directly)
-
-## What This Vault Is For
-
-This vault demonstrates the LLM Wiki pattern — a persistent, compounding knowledge base for Claude + Obsidian. Drop any source, ask any question, and the wiki grows richer with every session.
-
-## Vault Structure
+## Structure
 
 ```
-.raw/           source documents — immutable, Claude reads but never modifies
-wiki/           Claude-generated knowledge base
-_templates/     Obsidian Templater templates
-_attachments/   images and PDFs referenced by wiki pages
+.raw/               immutable source documents — never modify
+wiki/
+├── index.md        master catalog: update on every ingest
+├── log.md          append-only operation log
+├── hot.md          hot cache: ~500-word recent context
+├── overview.md     executive summary
+├── papers/         paper summaries with key claims and methodology
+├── concepts/       AI concepts, model architectures, frameworks
+├── entities/       companies, people, products
+├── tools/          tools, platforms, infrastructure
+├── open-source/    open source project tracking
+├── ecosystem/      chips, compute, policy, investment
+├── practice/       real-world cases, methodology, best practices
+├── timeline/       AI development milestones
+├── comparisons/    side-by-side analyses
+├── questions/      filed answers to user queries
+├── sources/        one summary page per raw source
+├── maps/           Image2 panoramic visual maps
+└── meta/           dashboards, lint reports
+_attachments/
+├── panoramas/      Image2 generated panoramas
+├── diagrams/       architecture diagrams
+├── infographics/   infographics
+└── models/         model structure visualizations
+_templates/         Obsidian Templater templates
 ```
 
-## How to Use
+## Conventions
 
-Drop a source file into `.raw/`, then tell Claude: "ingest [filename]".
+- All notes use YAML frontmatter: type, status, created, updated, tags
+- Wikilinks use [[Note Name]] format: filenames are unique, no paths needed
+- .raw/ contains source documents: never modify them
+- wiki/index.md is the master catalog: update on every ingest
+- wiki/log.md is append-only: never edit past entries
+- New log entries go at the TOP of the file
 
-Ask any question. Claude reads the index first, then drills into relevant pages.
+## Operations
 
-Run `/wiki` to scaffold a new vault or check setup status.
-
-Run "lint the wiki" every 10-15 ingests to catch orphans and gaps.
+- Ingest: drop source in .raw/, say "ingest [filename]"
+- Query: ask any question: reads index first, then drills in
+- Lint: say "lint the wiki" for health check
+- Panorama: generate Image2 panoramas into _attachments/panoramas/
 
 ## Cross-Project Access
 
@@ -35,7 +57,7 @@ To reference this wiki from another Claude Code project, add to that project's C
 
 ```markdown
 ## Wiki Knowledge Base
-Path: /path/to/this/vault
+Path: /Users/tony/Vault/tony-wiki-2026
 
 When you need context not already in this project:
 1. Read wiki/hot.md first (recent context, ~500 words)
@@ -45,20 +67,3 @@ When you need context not already in this project:
 
 Do NOT read the wiki for general coding questions or things already in this project.
 ```
-
-## Plugin Skills
-
-| Skill | Trigger |
-|-------|---------|
-| `/wiki` | Setup, scaffold, route to sub-skills |
-| `ingest [source]` | Single or batch source ingestion |
-| `query: [question]` | Answer from wiki content |
-| `lint the wiki` | Health check |
-| `/save` | File the current conversation as a structured wiki note |
-| `/autoresearch [topic]` | Autonomous research loop: search, fetch, synthesize, file |
-| `/canvas` | Visual layer: add images, PDFs, notes to Obsidian canvas |
-
-## MCP (Optional)
-
-If you configured the MCP server, Claude can read and write vault notes directly.
-See `skills/wiki/references/mcp-setup.md` for setup instructions.

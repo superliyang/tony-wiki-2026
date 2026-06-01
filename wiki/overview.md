@@ -1,70 +1,36 @@
 ---
 type: overview
-title: "Wiki Overview"
-created: 2026-04-07
-updated: 2026-04-07
-tags:
-  - meta
-  - overview
-status: developing
+title: "AI 全域知识体系 · 总览"
+created: 2026-05-16
+updated: 2026-05-16
+status: seed
 related:
   - "[[index]]"
   - "[[hot]]"
   - "[[log]]"
-  - "[[dashboard]]"
-  - "[[LLM Wiki Pattern]]"
-sources:
 ---
 
-# Wiki Overview
+# AI 全域知识体系
 
-Navigation: [[index]] | [[hot]] | [[log]] | [[dashboard]]
+覆盖 AI 领域的全维度知识库：公司、人物、论文、产品、模型、工具、开源项目、行业生态及实战落地。
 
----
+## 覆盖领域
 
-## Purpose
+| 领域 | 目录 | 说明 |
+|------|------|------|
+| 论文 | [[papers/_index|papers]] | 论文解读、关键主张、方法论、引用链 |
+| 概念 | [[concepts/_index|concepts]] | AI 概念、模型架构、算法框架 |
+| 实体 | [[entities/_index|entities]] | 公司、人物、产品 |
+| 工具 | [[tools/_index|tools]] | 工具、平台、基础设施 |
+| 开源 | [[open-source/_index|open-source]] | 开源项目追踪 |
+| 生态 | [[ecosystem/_index|ecosystem]] | 芯片、算力、政策、投融资 |
+| 实战 | [[practice/_index|practice]] | 落地案例、方法论、最佳实践 |
+| 时间线 | [[timeline/_index|timeline]] | AI 发展关键节点 |
+| 全景图 | [[maps/_index|maps]] | Image2 生成的全景视觉图 |
 
-This is the claude-obsidian demo vault. It demonstrates the [[LLM Wiki Pattern]] — a system for building persistent, compounding knowledge bases using Claude and Obsidian.
+## 知识状态
 
-Run `/wiki` to scaffold this vault for your own domain and replace this overview.
-
----
-
-## Current Seed Content
-
-
-**Concepts seeded:**
-- [[LLM Wiki Pattern]] — the core architecture
-- [[Hot Cache]] — session context mechanism
-- [[Compounding Knowledge]] — why the pattern works
-
-**Entities seeded:**
-- [[Andrej Karpathy]] — originated the pattern
-
-**Sources seeded:**
-- [[claude-obsidian-ecosystem-research]] — 16+ projects, 13 cherry-picks identified (2026-04-08)
-
----
-
-## Current State
-
-- Sources ingested: 2
-- Wiki pages: 26
-- Last activity: 2026-04-08 (v1.4.1 shipped, release session filed)
-
----
-
-## Canvases
-
-- [[claude-obsidian-presentation]] — Full presentation: hero, overview, skills, architecture, Wiki vs RAG, visual demos (2026-04-07)
-- [[AI Marketing Hub Cover Images Canvas]] — Cover image library for AI Marketing Hub brand assets
-
----
-
-## Key Themes
-
-**Knowledge compounds.** Unlike RAG, the wiki pre-compiles synthesis. Cross-references are already there. Contradictions are flagged. Every ingest enriches existing pages rather than adding isolated chunks.
-
-**The hot cache is the force multiplier.** A ~500-word file captures recent context. New sessions start with full context at minimal token cost.
-
-**Obsidian is the IDE, Claude is the programmer.** The graph view shows what's connected. The human curates sources and asks questions. Claude writes and maintains everything else.
+- **seed** — 刚创建，内容待填充
+- **developing** — 有实质内容，仍在完善
+- **mature** — 内容全面，引用丰富
+- **evergreen** — 稳定知识，无需频繁更新

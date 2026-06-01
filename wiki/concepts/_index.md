@@ -1,43 +1,23 @@
 ---
-type: meta
-title: "Concepts Index"
-updated: 2026-04-07
+type: domain
+title: "Concepts"
+created: 2026-05-16
+updated: 2026-05-16
+status: seed
+subdomain_of: ""
+page_count: 0
 tags:
-  - meta
-  - index
-  - concept
-domain: knowledge-management
-status: evergreen
-related:
-  - "[[index]]"
-  - "[[dashboard]]"
-  - "[[Wiki Map]]"
-  - "[[Hot Cache]]"
-  - "[[LLM Wiki Pattern]]"
-  - "[[Compounding Knowledge]]"
-  - "[[LLM Wiki Pattern]]"
-  - "[[Hot Cache]]"
-  - "[[Compounding Knowledge]]"
+  - domain
+  - concepts
 ---
 
-# Concepts Index
+# Concepts · AI 概念与模型
 
-Navigation: [[index]] | [[entities/_index|Entities]] | [[sources/_index|Sources]]
+AI 领域核心概念、模型架构、算法框架。从基础到前沿，构建概念图谱。
 
-All concept pages — ideas, patterns, and frameworks extracted from sources.
+## 覆盖范围
 
----
-
-## Knowledge Management
-
-- [[LLM Wiki Pattern]] — the core architecture for persistent, compounding knowledge bases
-- [[Hot Cache]] — ~500-word session context file, updated after every ingest
-- [[Compounding Knowledge]] — why the wiki grows more valuable over time, unlike RAG
-- [[DragonScale Memory]] — memory-layer spec: fold operator, deterministic page addresses, semantic tiling, boundary-first autoresearch (status: shipped v0.4, all four mechanisms opt-in)
-- [[Persistent Wiki Artifact]]: durable Markdown page as the LLM's memory object (developing)
-- [[Source-First Synthesis]]: provenance discipline for LLM wiki layers (developing)
-- [[Query-Time Retrieval]]: query synthesis with citations, complementary to Obsidian search (developing)
-
----
-
-## Add new concepts here as they are extracted from sources.
+- **模型架构**: Transformer, Diffusion, GAN, Mamba, MoE
+- **训练范式**: Pre-training, Fine-tuning, RLHF, DPO
+- **基础概念**: Attention, Embedding, Tokenization, Scaling Law
+- **应用概念**: RAG, Agent, Function Calling, Multimodal

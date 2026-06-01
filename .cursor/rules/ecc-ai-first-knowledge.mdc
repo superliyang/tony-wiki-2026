@@ -1,0 +1,33 @@
+---
+description: ECC-inspired project-local rule for the AI First knowledge work center.
+globs:
+  - "wiki/**/*.md"
+  - "00-Inbox-AI/**/*.md"
+  - "skills/**/SKILL.md"
+alwaysApply: true
+---
+
+# ECC AI First Knowledge Rule
+
+This vault uses ECC as an operating method, not as a global controller.
+
+## Tool Roles
+
+- Hermes: proactive runner, scheduled scout, Weixin/Feishu notification, candidate recommendation.
+- OpenHuman: ingestion and Memory Tree layer, writing to staging first.
+- ECC: rules, skills, hooks, playbooks, and engineering workflow discipline.
+- Obsidian and GitHub: durable knowledge source and history.
+
+## Required Workflow
+
+1. Put automated or AI-generated material in `00-Inbox-AI/`.
+2. Classify items as signal, candidate, review item, report, or agent-memory.
+3. Promote only reviewed knowledge into `wiki/`.
+4. Update indexes and `wiki/hot.md` when topology or operating context changes.
+5. Keep secrets, OAuth state, auth files, and runtime logs out of Git.
+
+## Safety Boundary
+
+Do not run ECC global installers, global hooks, or MCP sync from this project unless Tony explicitly asks for that scoped change.
+
+Prefer project-local skills, playbooks, and reviewed rules.
